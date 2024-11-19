@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #14162c;
+            color: #fff;
+        }
+
+        .container {
+            width: 350px;
+            padding: 2rem;
+            background-color: #1f2235;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: #a5a8b2;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #1b1e32;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #2f344b;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #373d56;
+        }
+
+        .toggle-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #a5a8b2;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .toggle-link:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="form-title">Login</h2>
+        <form id="auth-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password" required>
+            </div>
+            <div id="confirm-password-group" class="form-group" style="display: none;">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            </div>
+            <button class="btn" type="submit" id="auth-button">Login</button>
+            <a href="#" class="toggle-link" onclick="toggleForm()">Don't have an account? Sign up</a>
+        </form>
+    </div>
+
+    <script>
+        async function handleAuth(e, isSignUp) {
+            e.preventDefault();
+    
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            let confirmPassword = null;
+    
+            if (isSignUp) {
+                confirmPassword = document.getElementById('confirmPassword').value;
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+            }
+    
+            const url = isSignUp ? "http://localhost:3001/signup" : "http://localhost:3001/login";
+            const response = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password })
+            });
+    
+            const data = await response.json();
+            if (data.message) {
+                alert(data.message);
+                if (!isSignUp) {
+                    localStorage.setItem("loggedIn", "true");
+                    window.location.href = "index1.html";
+                } else {
+                    toggleForm();
+                }
+            } else {
+                alert(data.error || "Something went wrong!");
+            }
+        }
+    
+        function toggleForm() {
+            const formTitle = document.getElementById('form-title');
+            const authButton = document.getElementById('auth-button');
+            const confirmPasswordGroup = document.getElementById('confirm-password-group');
+            const toggleLink = document.querySelector('.toggle-link');
+    
+            if (formTitle.innerText === 'Login') {
+                formTitle.innerText = 'Sign Up';
+                authButton.innerText = 'Sign Up';
+                confirmPasswordGroup.style.display = 'block';
+                toggleLink.innerText = 'Already have an account? Login';
+            } else {
+                formTitle.innerText = 'Login';
+                authButton.innerText = 'Login';
+                confirmPasswordGroup.style.display = 'none';
+                toggleLink.innerText = "Don't have an account? Sign up";
+            }
+        }
+    
+        document.getElementById('auth-form').addEventListener('submit', (e) => {
+            const isSignUp = document.getElementById('form-title').innerText === "Sign Up";
+            handleAuth(e, isSignUp);
+        });
+    </script>    
+</body>
+</html>

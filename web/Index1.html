@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitVerse</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <script src="https://kit.fontawesome.com/70d9870e0f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Exchange.html">
+    <link rel="stylesheet" href="Explorer.html">
+    <link rel="stylesheet" href="Institutional.html">
+    <link rel="stylesheet" href="Wallet.html">
+    <link rel="stylesheet" href="trading.html">
+
+</head>
+
+<style>
+    .login {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .login:hover {
+        background-color: #0056b3;
+    }
+
+    .logo-text {
+    font-family: 'Arial', sans-serif; /* Choose a font */
+    font-size: 24px; /* Adjust size as needed */
+    font-weight: bold;
+    color: #ffffff; /* Change color to fit your design */
+    margin: 0;
+    padding: 0px;
+    left: 70px;
+}
+
+  
+</style>
+
+<body>
+    <header>
+
+        <div class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1 class="logo-text">BitVerse</h1>
+                </div>
+                
+
+                <div class="pill-nav">
+                    <a href=" http://localhost:3000/">Wallet</a>
+                    <a href="Exchange.html">Trading</a>
+                    <a href="Explorer.html">Explorer</a>
+                </div>
+
+                <!-- <div class="bar"> </i><input type="text" placeholder="Enter text here" /></div> -->
+                <!-- <i class="fa fa-search"></i> -->
+                <div class="cta-btns">
+                    <button class="login" onclick="window.location.href='login.html'">Log In</button>
+                    <button class="signup">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <div class="vessel">
+        <div class="text">
+            <p class="uper">Be early to the future of finance</p>
+            <p class="lower">Buy Bitcoin, Ethereum, and other leading cryptocurrencies on a <br> platform trusted by
+                millions.</p>
+
+                <form class="Hero__Form" onsubmit="sendEmail(event)">
+                    <label for="email" class="Hero__HiddenLabel"></label>
+                    <input type="email" id="email" placeholder="Your email address" required class="Hero__Input">
+                    <button class="Hero__SignUpButton" type="submit">Sign Up</button>
+                </form>
+
+                <div class="gif">
+                    <img src="Ani/crip.gif" class="Hero__Gif" alt="Animated GIF">
+                  </div>
+                  
+                  
+        </div>
+    </div>
+  
+    
+    <style>
+.gif {
+    width: 80px;  /* Adjust the size as needed */
+    height: auto;  /* Keep the aspect ratio */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;  /* Ensure container has transparent background */
+    opacity: none;
+}
+
+    .Hero__Gif {
+      width: 700%;  /* Adjust based on the container size */
+      height: auto;  /* Maintain the aspect ratio */
+      margin-left: 2000px;
+      margin-top: -310px;
+}
+
+    </style>
+
+   </style>
+    
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+    <script>
+        async function sendEmail(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+
+        try {
+            const response = await fetch('https://us-central1-my-apps-d433c.cloudfunctions.net/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            });
+
+            const result = await response.text();
+            alert(result);
+        } catch (error) {
+            alert('Error sending email: ' + error.message);
+        }
+    }
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Dummy credentials validation (replace with real validation as needed)
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple check for demo purposes - replace with actual backend authentication
+            if (email === "test@example.com" && password === "password") {
+                // Set the "loggedIn" flag to true
+                localStorage.setItem("loggedIn", "true");
+                
+                // Redirect to the home page
+                window.location.href = "index1.html";
+            } else {
+                alert("Invalid email or password!");
+            }
+        });
+    </script>
+
+
+
+    <div class="cards">
+        <div class="card">
+            <div class="image">
+                <img alt="BTC icon" src="https://i.postimg.cc/yYX1268w/Bitcoin.png">
+            </div>
+            <div class="trd">
+                <button class="buy">Buy</button>
+                <button class="trade">Trade</button>
+            </div>
+            <div class="letters">
+                <p>Bitcoin <span class="abbr">BTC</span></p>
+                <p>$41,264.80<span class="price">-2.80%</span></p>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="image">
+                <img alt="ETH icon" src="https://i.postimg.cc/JntMk112/Eth.png">
+            </div>
+            <div class="trd">
+                <button class="buy">Buy</button>
+                <button class="trade">Trade</button>
+            </div>
+            
+            <div class="letters">
+                <p>Etherum <span class="abbr">ETH</span></p>
+                <p>$2,153.58 <span class="price">-1.62%</span></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img alt="XLM icon" src="https://i.postimg.cc/kMSXFv3M/Stellar.png">
+            </div>
+            <div class="trd">
+                <button class="buy">Buy</button>
+                <button class="trade">Trade</button>
+            </div>
+            <div class="letters">
+                <p>Stellar<span class="abbr">XLM</span></p>
+                <p>$0.12<span class="price">-3.43%</span>
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img alt="SOL icon" src="https://i.postimg.cc/CMRk2xBc/Solana.png">
+            </div>
+            <div class="trd">
+                <button class="buy">Buy</button>
+                <button class="trade">Trade</button>
+            </div>
+            <div class="letters">
+                <p>Solana<span class="abbr">SOL</span></p>
+                <p>$70.71<span class="price">-3.43%</span></p>
+            </div>
+        </div>
+    </div>
+   
+    </div>
+    </div>
+
+    <div class="content">
+        <section class="sec">
+            <div class="cover">
+                <div class="left-column">
+                    <div class="path">
+                        <div class="vgf">
+                            <svg width="18" height="36" viewBox="0 0 20 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.36"
+                                    d="M5 1.25C2.92893 1.25 1.25 2.92893 1.25 5V31C1.25 33.0711 2.92893 34.75 5 34.75H15C17.0711 34.75 18.75 33.0711 18.75 31V5C18.75 2.92893 17.0711 1.25 15 1.25H5Z"
+                                    fill="#5322E5" stroke="#5322E5" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path opacity="0.9"
+                                    d="M5 1.25C2.92893 1.25 1.25 2.92893 1.25 5V28C1.25 30.0711 2.92893 31.75 5 31.75H15C17.0711 31.75 18.75 30.0711 18.75 28V5C18.75 2.92893 17.0711 1.25 15 1.25H5Z"
+                                    fill="white" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <rect x="8" y="4" width="4" height="1" rx="0.5" fill="currentColor"></rect>
+                            </svg>
+                        </div>
+                        <h2>Wallet</h2>
+                    </div>
+                    <div class="only">
+                        <h1>The only crypto wallet <br> you'll ever need</h1>
+                        <div class="sel">
+                            <p>Buy, sell, and swap with ease</p>
+                        </div>
+
+                        <div class="ear">
+                            <p>Earn rewards on your crypto</p>
+                        </div>
+                        <div class="self">
+                            <p>Self-custody your crypto</p>
+                        </div>
+                        <div class="to">
+                            <p>Connect to MetaMask</p>
+                        </div>
+                    </div>
+                    <a href="http://localhost:3000/">
+                        <button class="get">Get started</button>
+                    </a>
+                    
+
+                </div>
+                <div class="right-column">
+                    <img src="https://www.blockchain.com/static/img/home/products/app-ease.png" alt="phone">
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <div class="ops">
+        <section class="sect">
+            <div class="lft-column">
+                <img src="https://www.blockchain.com/static/img/home/products/prod-exchange-matching-engine.png"
+                    alt="Exchange matching">
+            </div>
+
+            <div class="rth-column">
+
+                <div class="pathl">
+                    <div class="vgf-l">
+                        <svg width="137" height="32" fill="none">
+                            <mask id="a" height="30" maskUnits="userSpaceOnUse" width="30" x="1" y="1">
+                                <rect fill="#c4c4c4" height="28" rx="3" stroke="#f5a250" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" width="28" x="2" y="2"></rect>
+                            </mask>
+                            <g mask="url(#a)" stroke="#0c6cf2" stroke-width="2">
+                                <g stroke-linecap="round">
+                                    <rect fill="#fff" height="28" rx="3" stroke-linejoin="round" width="28" x="2" y="2">
+                                    </rect>
+                                    <path d="m27 7 3-1v24h-28v-5l3-7 4 1 7-8 7-1z" fill="#0c6cf2" fill-opacity=".36"
+                                        stroke-linejoin="round"></path>
+                                    <path d="m16 16v14"></path>
+                                    <path d="m9 22v8"></path>
+                                    <path d="m16 2v4"></path>
+                                    <path d="m23 14v16"></path>
+                                </g>
+                                <circle cx="16" cy="11" fill="#fff" r="2"></circle>
+                            </g>
+                        </svg>
+                    </div>
+                    <h2>Exchange</h2>
+                </div>
+                <div class="fast">
+                    <h1>Lightning-fast crypto trading</h1>
+                    <div class="fiat">
+                        <p>Trade in 3 fiat currencies</p>
+                    </div>
+
+                    <div class="engine">
+                        <p>A matching engine that can keep up with you</p>
+                        <p>The world's fastest crypto matching engine, <br> built by and for traders.</p>
+
+                    </div>
+                    <div class="chat">
+                        <p>24/7 live chat support</p>
+                    </div>
+                    <div class="gin">
+                        <p>Margin Trading</p>
+                    </div>
+                </div>
+                <a href="trading.html">
+                    <button class="now">Trade now</button>
+                </a>
+                
+
+
+        </section>
+    </div>
+
+
+    <!-- <div class="down-cont">
+        <section class="setc">
+            <div class="path-r">
+                <div class="vga">
+                    <svg fill="none" height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#677185" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path
+                                d="m2.66666 13c-.36818 0-.66666-.2985-.66666-.6667v-2.66663c0-.36819.29848-.66667.66666-.66667h26.66664c.3681 0 .6666.29848.6666.66667v2.66663c0 .3682-.2985.6667-.6666.6667z"
+                                fill="#b1b8c7"></path>
+                            <path
+                                d="m27.9999 8.99998c0-3.99999-5.9999-7.99998-11.9999-7.99998-6.00001 0-12 3.99999-12 7.99998">
+                            </path>
+                            <path
+                                d="m3 27c-.55228 0-1-.4477-1-1v-2c0-.5523.44772-1 1-1h25.9999c.5523 0 1 .4477 1 1v2c0 .5523-.4477 1-1 1z"
+                                fill="#b1b8c7"></path>
+                            <path d="m2 31h27.9999"></path>
+                            <path d="m4 13v10"></path>
+                            <path d="m8 13v10"></path>
+                            <path d="m12 13v10"></path>
+                            <path d="m20 13v10"></path>
+                            <path d="m28 13v10"></path>
+                            <path d="m24 13v10"></path>
+                        </g>
+                    </svg>
+                </div>
+                <h2>Institutional</h2>
+            </div>
+            <div class="cryp">
+                <h1>High-touch crypto <br> solutions for institutions</h1>
+                <div class="spot">
+                    <p>Spot OTC, derivatives, structured products, and margin lending.</p>
+                </div>
+                <button class="client">Become a client</button>
+
+            </div>
+
+            <div class="rtr-column">
+                <img src="https://www.blockchain.com/static/img/home/homepage-institutional-shapes-bg.png" alt="ash">
+            </div>
+            </div>
+        </section>
+    </div> -->
+
+    <div class="co-nt">
+        <section class="sec">
+            <div class="cov">
+                <div class="let-column">
+                    <div class="pat">
+                        <div class="vgs">
+                            <svg width="137" height="32" fill="none">
+                                <path
+                                    d="m26.229 6.53163 4.353 12.50847-14.582 2.9599-14.58203-2.9599 4.35297-12.50847c.73586-2.11453 2.72947-3.53163 4.96836-3.53163 2.9054 0 5.2607 2.35526 5.2607 5.26063 0-2.90537 2.3553-5.26063 5.2606-5.26063 2.2389 0 4.2325 1.4171 4.9684 3.53163z"
+                                    fill="#f5a250" fill-opacity=".36"></path>
+                                <g stroke="#f5a250" stroke-width="2">
+                                    <path
+                                        d="m16 22v-13.73937m0 13.73937-14.58203-2.9599 4.35297-12.50847c.73586-2.11453 2.72947-3.53163 4.96836-3.53163 2.9054 0 5.2607 2.35526 5.2607 5.26063m0 13.73937 14.582-2.9599-4.353-12.50847c-.7359-2.11453-2.7295-3.53163-4.9684-3.53163-2.9053 0-5.2606 2.35526-5.2606 5.26063"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <circle cx="8.5" cy="21.5" fill="#fff" r="7.5"></circle>
+                                    <circle cx="23.5" cy="21.5" fill="#fff" r="7.5"></circle>
+                                </g>
+                                <path
+                                    d="m11 21.5c0 .5523.4477 1 1 1s1-.4477 1-1zm-2.5-4.5c-.55228 0-1 .4477-1 1s.44772 1 1 1zm0 2c1.38071 0 2.5 1.1193 2.5 2.5h2c0-2.4853-2.0147-4.5-4.5-4.5z"
+                                    fill="#f5a250"></path>
+                                <path
+                                    d="m26 21.5c0 .5523.4477 1 1 1s1-.4477 1-1zm-2.5-4.5c-.5523 0-1 .4477-1 1s.4477 1 1 1zm0 2c1.3807 0 2.5 1.1193 2.5 2.5h2c0-2.4853-2.0147-4.5-4.5-4.5z"
+                                    fill="#f5a250"></path>
+                            </svg>
+                        </div>
+                        <h2>Explore</h2>
+                    </div>
+                    <div class="onl">
+                        <h1>Blockchain data is in our <br> DNA</h1>
+                        <div class="top">
+                            <p>Explore the top blockchains</p>
+                        </div>
+
+                        <div class="entus">
+                            <p>Powerful Blockchain Data API</p>
+                            <p>We've powered exchanges, data analysts, enthusiasts, <br> and more.</p>
+                        </div>
+                        <div class="charts">
+                            <p>Industry leading charts</p>
+                        </div>
+                        <div class="pto">
+                            <p>Real-time crypto prices</p>
+                        </div>
+                    </div>
+                    <a href="Explorer.html">
+                        <button class="exp">Explore now</button>
+                    </a>
+
+                   
+                </div>
+                <div class="rig-column">
+                    <img src="https://www.blockchain.com/static/img/home/products/prod-explore-api.png" alt="stat">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="bottom-banner">
+        <div class="banner">
+            <h2 class="text_h2">Let us take you from zero to crypto</h2>
+
+            <a href="#">Get started</a>
+
+        </div>
+
+        <div class="SimpleBuy__Wrapper-sc-1q8ozsa-0 dSUsnY">
+            <form class="SimpleBuy__FormWrapper-sc-1q8ozsa-5 jiSQWx">
+                <p class="Text__ParagraphLarge-sc-1fwf07x-30 SimpleBuy__FormTitle-sc-1q8ozsa-6 dnGUUI hSsJBf">Buy
+                    Crypto
+                </p>
+                <div class="SimpleBuy__Row-sc-1q8ozsa-10 efGDtU">
+                    <div class="CryptoDropdown__Wrapper-sc-1kwmqic-0 gbgNHk">
+                        <div class="CryptoDropdown__Current-sc-1kwmqic-14 iIYPUz">
+                            <div
+                                class="CryptoDropdown__Row-sc-1kwmqic-3 CryptoDropdown__CurrentItem-sc-1kwmqic-4 eVaZBO cAGhCL">
+                                <svg viewBox="0 0 32 32" height="32px" selectable="0" width="32px"
+                                    class="sc-1pmbxjh-0 iBFEqE">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <circle cx="16" cy="16" r="16" fill="#F7931A"></circle>
+                                        <path fill="#FFF" fill-rule="nonzero"
+                                            d="M23.189 14.02c.314-2.096-1.283-3.223-3.465-3.975l.708-2.84-1.728-.43-.69 2.765c-.454-.114-.92-.22-1.385-.326l.695-2.783L15.596 6l-.708 2.839c-.376-.086-.746-.17-1.104-.26l.002-.009-2.384-.595-.46 1.846s1.283.294 1.256.312c.7.175.826.638.805 1.006l-.806 3.235c.048.012.11.03.18.057l-.183-.045-1.13 4.532c-.086.212-.303.531-.793.41.018.025-1.256-.313-1.256-.313l-.858 1.978 2.25.561c.418.105.828.215 1.231.318l-.715 2.872 1.727.43.708-2.84c.472.127.93.245 1.378.357l-.706 2.828 1.728.43.715-2.866c2.948.558 5.164.333 6.097-2.333.752-2.146-.037-3.385-1.588-4.192 1.13-.26 1.98-1.003 2.207-2.538zm-3.95 5.538c-.533 2.147-4.148.986-5.32.695l.95-3.805c1.172.293 4.929.872 4.37 3.11zm.535-5.569c-.487 1.953-3.495.96-4.47.717l.86-3.45c.975.243 4.118.696 3.61 2.733z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <p
+                                    class="Text__ParagraphSmall-sc-1fwf07x-32 CryptoDropdown__Item-sc-1kwmqic-6 CryptoDropdown__CurrentItemTitle-sc-1kwmqic-7 bfZunw kjTpSo fBZbmg">
+                                    Bitcoin</p><svg viewBox="0 0 448 512"
+                                    class="sc-1pmbxjh-0 etmIRa CryptoDropdown__ChevronDown-sc-1kwmqic-1 iPhjdB"
+                                    height="12px" selectable="0" width="12px">
+                                    <path
+                                        d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="SimpleBuy__Row-sc-1q8ozsa-10 SimpleBuy__AmountRow-sc-1q8ozsa-11 efGDtU bKlEix">
+                    <p class="Text__ParagraphLarge-sc-1fwf07x-30 SimpleBuy__CurrencySymbol-sc-1q8ozsa-9 dnGUUI jciVsr">
+                        $
+                    </p>
+                    <div class="sc-1c3roxu-0 dWfiLJ SimpleBuy__AmountInput-sc-1q8ozsa-13 lkMqTL" width="100%"><input
+                            type="number" min=".01" placeholder="0" required="" step=".01" value="" width="100%"
+                            data-e2e="defaultInput" class="sc-1c3roxu-1 duOTVU"></div>
+                </div>
+                <div class="SimpleBuy__Row-sc-1q8ozsa-10 efGDtU">
+                    <div class="FiatDropdown__Wrapper-sc-1dlumct-0 hUjZLg">
+                        <div class="FiatDropdown__Current-sc-1dlumct-9 ioOxNT">
+                            <div
+                                class="FiatDropdown__Row-sc-1dlumct-1 FiatDropdown__CurrentItem-sc-1dlumct-2 ixqxqs cFZcfZ">
+                                <p
+                                    class="Text__ParagraphSmall-sc-1fwf07x-32 FiatDropdown__Item-sc-1dlumct-4 FiatDropdown__CurrentItemTitle-sc-1dlumct-5 bfZunw dLuGMG cEWmuG">
+                                    USD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="SimpleBuy__Row-sc-1q8ozsa-10 SimpleBuy__Column-sc-1q8ozsa-12 efGDtU gvGoie">
+                    <p class="Text__ParagraphSmall-sc-1fwf07x-32 SimpleBuy__InputLabel-sc-1q8ozsa-8 bfZunw hcNeuP">
+                        Your
+                        Email</p>
+                    <div class="sc-1c3roxu-0 dWfiLJ SimpleBuy__EmailInput-sc-1q8ozsa-14 iaJIWU" width="100%"><input
+                            type="text" required="" value="" width="100%" data-e2e="defaultInput"
+                            class="sc-1c3roxu-1 duOTVU"></div>
+                </div><button type="submit" aria-label="Continue" width="100%"
+                    class="Button__DefaultButton-sc-1e82yhp-2 diIPPY SimpleBuy__ContinueButton-sc-1q8ozsa-2 fMOLtP">Continue</button>
+            </form><button type="submit"
+                class="Button__DefaultButton-sc-1e82yhp-2 bWSqqI SimpleBuy__CloseButton-sc-1q8ozsa-3 dAsYaI"><svg
+                    class="SimpleBuy__Times-sc-1q8ozsa-4 fSKaWb" width="25" height="24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20.5 5.611 18.889 4 12.5 10.389 6.111 4 4.5 5.611 10.889 12 4.5 18.389 6.111 20l6.389-6.389L18.889 20l1.611-1.611L14.111 12 20.5 5.611z"
+                        fill="#fff"></path>
+                </svg></button>
+           <!-- Button -->
+<div class="sub">
+    <button type="button" aria-label="Buy Crypto"
+        class="Button__DefaultButton-sc-1e82yhp-2 jCWiUx SimpleBuy__BuyButton-sc-1q8ozsa-1 dpgzyO"
+        onclick="showModal()">
+        <img src="https://www.blockchain.com/static/img/spinningIcons.gif" aria-hidden="true" height="40"
+            width="50" alt="buy-crypto" class="SimpleBuy__RotatingImage-sc-1q8ozsa-15 ganDhs">
+        <p class="Text__Par">Talk to Crypto</p>
+    </button>
+</div>
+
+        <!-- Modal -->
+        <div id="cryptoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="chatbot-container">
+                    <div class="chat-header">
+                        <h2>Cryptoo</h2>
+                    </div>
+                    <div class="chat-box" id="chatBox">
+                        <div class="message bot-message">
+                            <div class="message-content">Hello! How can I assist you with crypto today?</div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="userInput" placeholder="Type your message..." />
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    <!-- CSS -->
+                <style>
+                    /* Modal Styles */
+                    .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+
+                .modal-content {
+                    background-color: #2d2f48;
+      
+                    margin: 15% auto;
+                    padding: 20px;
+                    border: 1px solid #C5D3E8;
+                    width: 400px;
+                    border-radius: 10px;
+                    position: fixed;
+                    margin-left: 580px;
+                    margin-top: 50px;
+                }
+
+                .chatbot-container {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .chat-header {
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .chat-box {
+                    height: 300px;
+                    overflow-y: auto;
+                    border: 1px solid #D0E8C5;
+                    border-radius: 10px;
+                    padding: 10px;
+                    margin-top: 10px;
+                }
+
+                .chat-input {
+                    display: flex;
+                    margin-top: 10px;
+                }
+
+                .chat-input input {
+                    flex: 1;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                }
+
+                .chat-input button {
+                    margin-left: 5px;
+                    padding: 10px 15px;
+                    background-color: #4CAF50;
+                    color: rgb(0, 0, 0);
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .message {
+                    margin: 5px 0;
+                }
+
+                .user-message .message-content {
+                    text-align: right;
+                    background-color: #608BC1;
+                    padding: 8px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+
+                .bot-message .message-content {
+                    text-align: left;
+                    background-color: #133E87;
+                    padding: 8px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+                
+                    .close {
+                        color: #000000;
+                        font-size: 30px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        position: absolute;
+                        top: 10px;
+                        right: 20px;
+                    }
+                
+                    .close:hover,
+                    .close:focus {
+                        color: #f4f4f4;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+                
+                    
+                </style>
+                
+                    
+
+                <!-- JavaScript -->
+                <script>
+                    // Show Modal
+                    function showModal() {
+                        document.getElementById('cryptoModal').style.display = 'block';
+                    }
+                
+                    // Close Modal
+                    function closeModal() {
+                        document.getElementById('cryptoModal').style.display = 'none';
+                    }
+                
+                    // Send User Message
+                    function sendMessage() {
+                        let userInput = document.getElementById('userInput').value;
+                        if (userInput.trim() !== "") {
+                            // Display user message
+                            let userMessage = document.createElement("div");
+                            userMessage.classList.add("message", "user-message");
+                            userMessage.innerHTML = `<div class="message-content">${userInput}</div>`;
+                            document.getElementById('chatBox').appendChild(userMessage);
+                
+                            // Clear input field
+                            document.getElementById('userInput').value = "";
+                
+                            // Scroll to the bottom
+                            document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
+                
+                            // Simulate bot reply after a delay
+                            setTimeout(function () {
+                                let botMessage = document.createElement("div");
+                                botMessage.classList.add("message", "bot-message");
+                                botMessage.innerHTML = `<div class="message-content">Here's some crypto info!</div>`;
+                                document.getElementById('chatBox').appendChild(botMessage);
+                
+                                // Scroll to the bottom
+                                document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
+                            }, 1000);
+                        }
+                    }
+                </script>
+                
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <footer>
+        <div class="foot-er">
+            <div class="flex-on">
+                <div class="top-footer">
+                    <div class="trf-sv">
+                        <svg height="1.5rem" color="black" class="LogotypeText__Logo-gkjo77-0 iEhMQm" fill="none"
+                            width="242" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#000">
+                                <path
+                                    d="M0 23.672h9.728c5.113 0 7.837-2.624 7.837-6.189 0-3.313-2.412-5.314-5.003-5.434v-.219c2.369-.524 4.114-2.175 4.114-4.81 0-3.357-2.535-5.74-7.56-5.74H0zm4.814-3.87v-5.949h4.035c2.313 0 3.747 1.312 3.747 3.16 0 1.684-1.167 2.788-3.858 2.788zm0-9.152V5.106H8.47c2.135 0 3.347 1.083 3.347 2.7 0 1.772-1.468 2.844-3.436 2.844zm20.531-9.37h-4.736v22.392h4.736zM36.854 24c5.18 0 8.404-3.488 8.404-8.66 0-5.204-3.224-8.681-8.404-8.681-5.181 0-8.405 3.477-8.405 8.681 0 5.172 3.224 8.66 8.405 8.66zm.022-3.608c-2.39 0-3.613-2.154-3.613-5.084s1.223-5.096 3.613-5.096c2.346 0 3.569 2.165 3.569 5.096s-1.223 5.084-3.57 5.084zM56.053 24c4.547 0 7.404-2.624 7.627-6.484h-4.47c-.278 1.793-1.478 2.8-3.101 2.8-2.213 0-3.647-1.827-3.647-5.041 0-3.171 1.445-4.986 3.647-4.986 1.734 0 2.846 1.126 3.101 2.799h4.47c-.2-3.882-3.191-6.43-7.65-6.43-5.18 0-8.382 3.532-8.382 8.682 0 5.106 3.147 8.66 8.405 8.66zm10.659-.328h4.736v-5.336l1.278-1.432 4.658 6.768h5.548l-6.66-9.524 6.337-7.27h-5.436l-5.47 6.374h-.255V1.279h-4.736zM91.945 24c4.547 0 7.404-2.624 7.627-6.484h-4.47c-.277 1.793-1.478 2.8-3.101 2.8-2.212 0-3.647-1.827-3.647-5.041 0-3.171 1.446-4.986 3.647-4.986 1.734 0 2.846 1.126 3.102 2.799h4.469c-.2-3.882-3.191-6.43-7.649-6.43-5.18 0-8.382 3.532-8.382 8.682 0 5.106 3.146 8.66 8.404 8.66zm15.395-10.037c.011-2.165 1.356-3.434 3.291-3.434 1.923 0 3.057 1.214 3.046 3.28v9.863h4.736V12.979c.011-3.937-2.346-6.32-5.904-6.32-2.59 0-4.324 1.202-5.102 3.182h-.201V1.279h-4.602v22.393h4.736zm19.669 10.027c2.524 0 4.158-1.083 4.992-2.647h.133v2.329h4.491V12.344c0-4.001-3.446-5.685-7.248-5.685-4.091 0-6.782 1.924-7.437 4.986l4.38.35c.322-1.116 1.334-1.936 3.035-1.936 1.612 0 2.534.798 2.534 2.176v.066c0 1.082-1.167 1.224-4.135 1.509-3.38.306-6.415 1.421-6.415 5.171 0 3.324 2.413 5.008 5.67 5.008zm1.356-3.215c-1.456 0-2.501-.667-2.501-1.947 0-1.312 1.101-1.957 2.768-2.187 1.034-.142 2.724-.382 3.291-.754v1.782c0 1.76-1.479 3.105-3.558 3.105zm11.935 2.897h4.736V6.877H140.3zm2.379-18.96c1.412 0 2.568-1.06 2.568-2.361 0-1.29-1.156-2.351-2.568-2.351-1.401 0-2.557 1.06-2.557 2.35 0 1.302 1.156 2.363 2.557 2.363zm10.886 9.251c.011-2.165 1.323-3.434 3.235-3.434 1.902 0 3.047 1.225 3.035 3.28v9.863h4.736V12.979c0-3.915-2.334-6.32-5.892-6.32-2.534 0-4.369 1.224-5.136 3.182h-.2V6.877h-4.514v16.795h4.736z">
+                                </path>
+                                <path
+                                    d="M171.825 23.957c1.431 0 2.672-1.157 2.683-2.594-.011-1.416-1.252-2.573-2.683-2.573-1.475 0-2.694 1.157-2.682 2.573-.012 1.437 1.207 2.594 2.682 2.594zm14.349.043c4.572 0 7.445-2.594 7.668-6.41h-4.493c-.28 1.773-1.487 2.767-3.119 2.767-2.224 0-3.666-1.805-3.666-4.982 0-3.135 1.453-4.93 3.666-4.93 1.744 0 2.862 1.114 3.119 2.768h4.493c-.201-3.837-3.208-6.356-7.69-6.356-5.209 0-8.428 3.491-8.428 8.582 0 5.048 3.163 8.561 8.45 8.561zm18.474 0c5.209 0 8.45-3.448 8.45-8.56 0-5.146-3.241-8.583-8.45-8.583s-8.45 3.437-8.45 8.582c0 5.113 3.241 8.561 8.45 8.561zm.022-3.567c-2.403 0-3.632-2.13-3.632-5.026s1.229-5.037 3.632-5.037c2.359 0 3.588 2.14 3.588 5.037s-1.229 5.026-3.588 5.026zm11.524 3.243h4.762V13.71c0-1.838 1.207-3.059 2.794-3.059 1.565 0 2.616 1.038 2.616 2.67v10.355h4.616V13.537c0-1.719 1.017-2.886 2.75-2.886 1.52 0 2.66.919 2.66 2.767v10.258h4.751V12.51c0-3.6-2.214-5.653-5.41-5.653-2.515 0-4.471 1.243-5.176 3.146h-.178c-.548-1.924-2.303-3.146-4.661-3.146-2.314 0-4.069 1.19-4.784 3.146h-.202v-2.93h-4.538z"
+                                    opacity=".5"></path>
+                            </g>
+                        </svg>
+
+                        <div class="icon-s">
+                            <a href="#"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                            <div class="insta">
+                                <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                            </div>
+                            <a href="#"><box-icon name='medium' type='logo' color='#31312f'></box-icon>Medium</a>
+                        </div>
+                    </div>
+
+                    <div class="mid-footer">
+                        <div class="upp">
+                            <h3>Products</h3>
+                        </div>
+                        <div class="par">
+                            <p>Wallet</p>
+                            <p>Exchange</p>
+                            <p>Explorer</p>
+                            <p>Pay</p>
+                          
+                           
+                        </div>
+                    </div>
+                    <div class="right-footer">
+                        <div class="upp">
+                            <h3>Resources</h3>
+                        </div>
+                        <div class="par">
+                            <p>APIs</p>
+                            <p>Status</p>
+                            <p>Open Source</p>
+                            <p>Research</p>
+                            
+                        </div>
+                    </div>
+                    <div class="right-footer">
+                        <div class="upp">
+                            <h3>Company</h3>
+                        </div>
+                        <div class="par">
+                            <p>About</p>
+                            <p>Careers <span class="hir">Hiring</span></p>
+                            <p>Press center</p>
+                            <p>Prime</p>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="bott-footer">
+                    <div class="las">
+                       
+                    </div>
+                    <div class="end">
+                        <div class="endtext">
+                          
+                        </div>
+                       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+    <script>
+        // Function to send the message to the Flask API and get a response
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            if (!userInput) return;
+    
+            // Display user's message in chatbox
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.classList.add('message', 'user-message');
+            userMessageDiv.innerHTML = `<div class="message-content">${userInput}</div>`;
+            document.getElementById('chatBox').appendChild(userMessageDiv);
+            document.getElementById('userInput').value = '';
+    
+            // Fetch response from the Flask backend
+            try {
+                const response = await fetch('http://127.0.0.1:4000/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: userInput }),
+        });
+
+    
+                const data = await response.json();
+    
+                // Display bot's response in chatbox
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.classList.add('message', 'bot-message');
+                botMessageDiv.innerHTML = `<div class="message-content">${data.response}</div>`;
+                document.getElementById('chatBox').appendChild(botMessageDiv);
+    
+                // Scroll chatbox to the latest message
+                document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('cryptoModal').style.display = 'none';
+        }
+    
+        // Open modal function for demo purpose
+        function openModal() {
+            document.getElementById('cryptoModal').style.display = 'block';
+        }
+    </script>
+
+
+</body>
+
+</html>
